@@ -1,51 +1,58 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Типография monoprint</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Ubuntu:wght@700&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-<link rel="shortcut icon" href="/favicon.ico" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-<link rel="manifest" href="/site.webmanifest" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f6f7f9">
+  <meta name="description" content="МОНОПРИНТ - рекламно-производственная компания в Ростове-на-Дону">
+  <title>МОНОПРИНТ</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header id="header" class="header">
-        <div class="container">
-            <a href="" target="_blank">
-                <img class="logo" src="img/logo.png" alt="monoprint">
-            </a>
-        <div class="wrapper">
-            <div class="offer">
-                <img src="img/Vector.png" alt="attention" class="attent">
-                <h1 class="tittle">
-                    Сайт на реконструкции...
-                </h1>
-                <p class="intro">
-                    Наш сайт находится в стадии преображения,
-                    но мы готовы к работе!
-                    
-                    Для связи жми скорее на кнопку позвонить!
-                </p>
-                <a href="tel:+79281119188" class="btn">Позвонить</a>
-            </div>
-            <img src="img/desk.png" alt="Code desktop" class="desktop">
-        </div>
-        </div>
-        <div class="fut">
-            <p class="text">
-                г.Ростов-на-Дону. ул.Лермонтовская  д.125. офис 4.
-            </p>
-        </div>
-    </header>  
+  <main class="taplink" aria-labelledby="brand-title">
+    <div class="decor decor-top" aria-hidden="true"></div>
+    <div class="decor decor-bottom" aria-hidden="true"></div>
+    <div class="dot-pattern" aria-hidden="true"></div>
+
+    <header class="brand">
+      <h1 id="brand-title">МОНОПРИНТ</h1>
+      <p>РЕКЛАМНО ПРОИЗВОДСТВЕННАЯ КОМПАНИЯ</p>
+    </header>
+
+    <nav class="actions" aria-label="Способы связи">
+      <a class="action-card" data-link="max" href="https://max.ru/u/f9LHodD0cOK-8bOsjbWF1MatpsxchI5ix057xEPlfJnU2UN78zfdYixXzE4" target="_blank" rel="noopener noreferrer">
+        <span class="service-icon" aria-hidden="true"><img src="assets/max.svg" alt=""></span>
+        <span class="action-label">Написать в MAX</span>
+        <span class="arrow" aria-hidden="true">›</span>
+      </a>
+
+      <a class="action-card" data-link="telegram" href="https://t.me/monoprint" target="_blank" rel="noopener noreferrer">
+        <span class="service-icon" aria-hidden="true"><img src="assets/telegram.svg" alt=""></span>
+        <span class="action-label">Telegram</span>
+        <span class="arrow" aria-hidden="true">›</span>
+      </a>
+
+      <a class="action-card" data-link="vk" href="https://vk.ru/monoprint_rnd" target="_blank" rel="noopener noreferrer">
+        <span class="service-icon vk-icon" aria-hidden="true">VK</span>
+        <span class="action-label">Мы в ВКонтакте</span>
+        <span class="arrow" aria-hidden="true">›</span>
+      </a>
+
+      <a class="call-button" data-link="phone" href="tel:+79381114131">Позвонить</a>
+    </nav>
+
+    <section class="contacts" aria-label="Контакты">
+      <a class="contact-row" data-link="map" href="https://yandex.ru/maps/-/CTg6rPIj" target="_blank" rel="noopener noreferrer">
+        <span class="contact-icon location-icon" aria-hidden="true">⌖</span>
+        <span>Ростов-на-Дону,<br>Лермонтовская 125, 4 офис</span>
+      </a>
+      <a class="contact-row" data-link="phone" href="tel:+79381114131">
+        <span class="contact-icon phone-icon" aria-hidden="true">☎</span>
+        <span>+7 938 111-41-31</span>
+      </a>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
 </body>
 </html>
