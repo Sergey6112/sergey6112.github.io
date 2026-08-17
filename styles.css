@@ -168,8 +168,8 @@ body {
 .service-icon {
   display: grid;
   place-items: center;
-  width: clamp(51px, 8.5vw, 58px);
-  height: clamp(51px, 8.5vw, 58px);
+  width: clamp(52px, 8.5vw, 58px);
+  height: clamp(52px, 8.5vw, 58px);
   overflow: hidden;
   flex: none;
 }
@@ -181,13 +181,10 @@ body {
   object-fit: contain;
 }
 
-.vk-icon {
-  color: #fff;
-  border-radius: 50%;
-  background: #2787f5;
-  font-size: clamp(19px, 3.5vw, 24px);
-  font-weight: 800;
-  letter-spacing: -.08em;
+/* У SVG ВКонтакте есть внутренние прозрачные поля. Масштаб компенсирует их,
+   чтобы видимый диаметр совпадал с MAX и Telegram. */
+.service-icon--vk img {
+  transform: scale(1.17);
 }
 
 .call-button {
