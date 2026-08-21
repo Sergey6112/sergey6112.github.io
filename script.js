@@ -1,6 +1,7 @@
 // Все контакты сайта редактируются в одном месте.
 const CONTACTS = {
   phone: "+79381114131",
+  email: "info@mono-print.ru",
   max: "https://max.ru/u/f9LHodD0cOK-8bOsjbWF1MatpsxchI5ix057xEPlfJnU2UN78zfdYixXzE4",
   telegram: "https://t.me/monoprint",
   vk: "https://vk.ru/monoprint_rnd",
@@ -9,6 +10,7 @@ const CONTACTS = {
 
 const links = {
   phone: `tel:${CONTACTS.phone}`,
+  email: `mailto:${CONTACTS.email}`,
   max: CONTACTS.max,
   telegram: CONTACTS.telegram,
   vk: CONTACTS.vk,

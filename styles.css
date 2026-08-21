@@ -99,6 +99,10 @@ body {
   text-align: center;
 }
 
+.brand-home {
+  display: block;
+}
+
 .visually-hidden {
   position: absolute;
   width: 1px;
