@@ -21,3 +21,19 @@ document.querySelectorAll("[data-link]").forEach((element) => {
   const type = element.dataset.link;
   if (links[type]) element.href = links[type];
 });
+
+const catalogToggle = document.querySelector(".catalog-toggle");
+const catalogPanel = document.querySelector("#catalog-panel");
+
+if (catalogToggle && catalogPanel) {
+  if (window.location.hash === "#catalog-panel") {
+    catalogToggle.setAttribute("aria-expanded", "true");
+    catalogPanel.hidden = false;
+  }
+
+  catalogToggle.addEventListener("click", () => {
+    const isOpen = catalogToggle.getAttribute("aria-expanded") === "true";
+    catalogToggle.setAttribute("aria-expanded", String(!isOpen));
+    catalogPanel.hidden = isOpen;
+  });
+}

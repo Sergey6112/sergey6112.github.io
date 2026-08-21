@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#f6f7f9">
+  <title>Вывески | МОНОПРИНТ</title>
+  <meta name="description" content="Виды вывесок МОНОПРИНТ и предварительный калькулятор неоновой вывески.">
+  <link rel="canonical" href="https://mono-print.ru/calculator-signage.html">
+  <link rel="icon" href="assets/favicon.ico" sizes="any">
+  <link rel="stylesheet" href="calculator.css">
+</head>
+<body>
+  <main class="calculator-shell signage-page">
+    <div class="decor-line decor-line--top" aria-hidden="true"></div><div class="decor-line decor-line--bottom" aria-hidden="true"></div><div class="calc-dots" aria-hidden="true"></div>
+    <header class="calculator-header"><a class="back-button" href="index.html#catalog-panel" aria-label="Вернуться в каталог"><span aria-hidden="true"></span></a><a class="calculator-logo" href="index.html" aria-label="МОНОПРИНТ — на главную"><img src="assets/logo-monoprint-trimmed.png" alt="МОНОПРИНТ"></a></header>
+
+    <section class="calculator-title"><img src="assets/category-signs.svg" alt="" aria-hidden="true"><div><h1>Вывески</h1><p>Выберите подходящий вид вывески</p></div></section>
+
+    <section class="calc-card sign-type-card" aria-labelledby="sign-type-title">
+      <h2 id="sign-type-title">Виды вывесок</h2>
+      <div class="sign-type-grid">
+        <button class="sign-type-button sign-type-button--neon" id="neon-toggle" type="button" aria-expanded="false" aria-controls="neon-calculator"><img src="assets/sign-neon.svg" alt=""><strong>Неоновая вывеска</strong><span class="card-action">Рассчитать</span></button>
+        <button class="sign-type-button" type="button"><img src="assets/sign-letters.svg" alt=""><strong>Объёмные буквы</strong></button>
+        <button class="sign-type-button" type="button"><img src="assets/sign-lightbox.svg" alt=""><strong>Световой короб</strong></button>
+        <button class="sign-type-button" type="button"><img src="assets/sign-bracket.svg" alt=""><strong>Панель-кронштейн</strong></button>
+        <button class="sign-type-button" type="button"><img src="assets/sign-flat.svg" alt=""><strong>Несветовая вывеска</strong></button>
+        <button class="sign-type-button" type="button"><img src="assets/sign-facade.svg" alt=""><strong>Оформление фасада</strong></button>
+      </div>
+    </section>
+
+    <form class="neon-calculator" id="neon-calculator" hidden>
+      <div class="neon-heading"><div><span>Предварительный расчёт</span><h2>Неоновая вывеска</h2></div><button type="button" id="neon-close" aria-label="Свернуть калькулятор">×</button></div>
+      <section class="calc-card" aria-labelledby="neon-base-title">
+        <h3 id="neon-base-title">1. Основание вывески</h3>
+        <div class="neon-base-options">
+          <label><input type="radio" name="neonBase" value="2300" checked><span><i aria-hidden="true"></i><strong>Прозрачное</strong><small>Акрил 4–5 мм</small></span></label>
+          <label><input type="radio" name="neonBase" value="4900"><span><i aria-hidden="true"></i><strong>Цветное</strong><small>Основание в цвет</small></span></label>
+        </div>
+      </section>
+      <section class="calc-card" aria-labelledby="neon-size-title">
+        <h3 id="neon-size-title">2. Размер основания</h3>
+        <div class="size-grid neon-size-grid"><label>Ширина, см<input id="neon-width" type="number" min="30" max="290" step="1" value="100" inputmode="numeric"></label><span class="multiply" aria-hidden="true">×</span><label>Высота, см<input id="neon-height" type="number" min="20" max="190" step="1" value="50" inputmode="numeric"></label></div>
+        <p class="field-hint">Ширина 30–290 см · высота 20–190 см</p>
+      </section>
+      <section class="calc-card" aria-labelledby="neon-detail-title">
+        <h3 id="neon-detail-title">3. Неон и элементы</h3>
+        <div class="neon-number-list">
+          <label><span><strong>Длина гибкого неона</strong><small>От 1 до 50 метров</small></span><div class="unit-input"><input id="neon-length" type="number" min="1" max="50" step="0.1" value="6" inputmode="decimal"><b>м</b></div></label>
+          <label><span><strong>Отдельные элементы</strong><small>Буквы, линии и детали</small></span><div class="unit-input"><input id="neon-elements" type="number" min="1" max="150" step="1" value="20" inputmode="numeric"><b>шт.</b></div></label>
+        </div>
+      </section>
+      <section class="summary-card neon-summary" aria-live="polite"><span>Ориентировочная стоимость</span><strong id="neon-total">—</strong><p id="neon-summary-text">Прозрачное основание · 100 × 50 см · 6 м неона</p></section>
+      <section class="calc-card" aria-labelledby="neon-file-title"><h3 id="neon-file-title">4. Эскиз или пример</h3><label class="file-upload"><input id="neon-file" type="file" accept="image/*,.pdf,.ai,.cdr,.eps"><span class="file-plus" aria-hidden="true">+</span><span><strong id="neon-file-label">Загрузить файл</strong><small>Фото, рисунок, макет или логотип</small></span></label></section>
+      <button class="max-submit" id="neon-max-submit" type="button"><img src="assets/max.svg" alt="" aria-hidden="true"><span>Отправить расчёт в MAX</span></button>
+      <p class="calculation-note">Расчёт ориентировочный. Менеджер уточнит конструкцию, цвет, крепление и окончательную стоимость.</p>
+    </form>
+    <a class="catalog-return signage-return" href="index.html#catalog-panel">Вернуться в каталог</a>
+  </main>
+  <script src="calculator-signage.js"></script>
+</body>
+</html>

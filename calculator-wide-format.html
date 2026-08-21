@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f6f7f9">
+  <title>Калькулятор широкоформатной печати | МОНОПРИНТ</title>
+  <meta name="description" content="Рассчитайте предварительную стоимость широкоформатной печати баннера, самоклейки, баннерной сетки, холста, постерной бумаги и перфорированной плёнки.">
+  <link rel="canonical" href="https://mono-print.ru/calculator-wide-format.html">
+  <link rel="icon" href="assets/favicon.ico" sizes="any">
+  <link rel="stylesheet" href="calculator.css">
+</head>
+<body>
+  <main class="calculator-shell">
+    <div class="decor-line decor-line--top" aria-hidden="true"></div>
+    <div class="decor-line decor-line--bottom" aria-hidden="true"></div>
+    <div class="calc-dots" aria-hidden="true"></div>
+
+    <header class="calculator-header">
+      <a class="back-button" href="index.html#catalog-panel" aria-label="Вернуться в каталог">
+        <span aria-hidden="true"></span>
+      </a>
+      <a class="calculator-logo" href="index.html" aria-label="МОНОПРИНТ - на главную">
+        <img src="assets/logo-monoprint-trimmed.png" alt="МОНОПРИНТ">
+      </a>
+    </header>
+
+    <section class="calculator-title">
+      <img src="assets/category-wide-print.svg" alt="" aria-hidden="true">
+      <div>
+        <h1>Широкоформатная<br>печать</h1>
+        <p>Рассчитайте предварительную стоимость заказа</p>
+      </div>
+    </section>
+
+    <form class="calculator" id="wide-format-calculator">
+      <section class="calc-card material-card" aria-labelledby="material-title">
+        <div class="section-heading">
+          <h2 id="material-title">1. Выберите материал</h2>
+          <span class="price-status" id="price-status">Загрузка цен…</span>
+        </div>
+        <div class="material-list" id="material-list" tabindex="0" aria-label="Прокручиваемый список материалов">
+          <label class="material-option">
+            <input type="radio" name="material" value="banner440" checked>
+            <span class="radio-mark" aria-hidden="true"></span>
+            <span class="material-copy"><strong>Баннер 440 г</strong><small>Для улицы и помещений</small></span>
+            <strong class="material-price" data-price-for="banner440">от 650 ₽/м²</strong>
+          </label>
+          <label class="material-option">
+            <input type="radio" name="material" value="selfAdhesive">
+            <span class="radio-mark" aria-hidden="true"></span>
+            <span class="material-copy"><strong>Самоклейка</strong><small>Для стекла и ровных поверхностей</small></span>
+            <strong class="material-price" data-price-for="selfAdhesive">от 800 ₽/м²</strong>
+          </label>
+          <label class="material-option">
+            <input type="radio" name="material" value="mesh">
+            <span class="radio-mark" aria-hidden="true"></span>
+            <span class="material-copy"><strong>Баннерная сетка</strong><small>Для фасадов и ветреных мест</small></span>
+            <strong class="material-price" data-price-for="mesh">от 950 ₽/м²</strong>
+          </label>
+          <label class="material-option">
+            <input type="radio" name="material" value="perforated">
+            <span class="radio-mark" aria-hidden="true"></span>
+            <span class="material-copy"><strong>Перфорированная плёнка</strong><small>Для оформления витрин</small></span>
+            <strong class="material-price" data-price-for="perforated">от 950 ₽/м²</strong>
+          </label>
+          <label class="material-option">
+            <input type="radio" name="material" value="canvas">
+            <span class="radio-mark" aria-hidden="true"></span>
+            <span class="material-copy"><strong>Холст</strong><small>Интерьерная печать</small></span>
+            <strong class="material-price" data-price-for="canvas">от 3 300 ₽/м²</strong>
+          </label>
+          <label class="material-option">
+            <input type="radio" name="material" value="poster">
+            <span class="radio-mark" aria-hidden="true"></span>
+            <span class="material-copy"><strong>Постерная бумага</strong><small>Афиши и интерьерные постеры</small></span>
+            <strong class="material-price" data-price-for="poster">от 850 ₽/м²</strong>
+          </label>
+        </div>
+        <p class="scroll-hint">Прокрутите список, чтобы увидеть все материалы</p>
+      </section>
+
+      <section class="calc-card" aria-labelledby="size-title">
+        <h2 id="size-title">2. Размер и количество</h2>
+        <div class="size-grid">
+          <label>Ширина, м<input id="width" name="width" type="number" min="0.1" step="0.01" value="2" inputmode="decimal"></label>
+          <span class="multiply" aria-hidden="true">×</span>
+          <label>Высота, м<input id="height" name="height" type="number" min="0.1" step="0.01" value="3" inputmode="decimal"></label>
+        </div>
+        <div class="quantity-row">
+          <span>Количество</span>
+          <div class="stepper">
+            <button type="button" data-quantity-step="-1" aria-label="Уменьшить количество">−</button>
+            <input id="quantity" name="quantity" type="number" min="1" step="1" value="1" aria-label="Количество изделий">
+            <button type="button" data-quantity-step="1" aria-label="Увеличить количество">+</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="calc-card" aria-labelledby="options-title">
+        <h2 id="options-title">3. Дополнительные опции</h2>
+        <label class="switch-row">
+          <span><strong>Люверсы по периметру</strong><small>Шаг 30 см · <span id="eyelet-rate">20 ₽/шт.</span></small></span>
+          <input id="eyelets" type="checkbox" checked>
+          <span class="switch" aria-hidden="true"></span>
+        </label>
+        <label class="design-row">Макет
+          <select id="design-status">
+            <option value="ready">Макет готов</option>
+            <option value="needed">Нужен дизайн</option>
+          </select>
+        </label>
+      </section>
+
+      <section class="summary-card" aria-live="polite">
+        <h2>Предварительный расчёт</h2>
+        <dl>
+          <div><dt>Материал</dt><dd id="summary-material">Баннер 440 г</dd></div>
+          <div><dt>Площадь</dt><dd id="summary-area">6 м²</dd></div>
+          <div><dt>Печать</dt><dd id="summary-print">3 900 ₽</dd></div>
+          <div id="eyelets-summary"><dt>Люверсы, примерно <span id="eyelet-count">34</span> шт.</dt><dd id="summary-eyelets">680 ₽</dd></div>
+        </dl>
+        <div class="total-row"><span>Итого</span><strong id="summary-total">4 580 ₽</strong></div>
+      </section>
+
+      <button class="max-submit" id="max-submit" type="button">
+        <img src="assets/max.svg" alt="" aria-hidden="true">
+        <span>Отправить расчёт в MAX</span>
+      </button>
+      <a class="catalog-return" href="index.html#catalog-panel">Вернуться в каталог</a>
+      <p class="calculation-note">Расчёт предварительный. Итоговую стоимость подтвердит менеджер МОНОПРИНТ.</p>
+    </form>
+  </main>
+  <script src="calculator.js"></script>
+</body>
+</html>

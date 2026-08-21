@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Фигурный контур классической адресной таблички -->
+  <path d="M7 27 20 22l-1-6c8-5 18-5 26 0l-1 6 13 5-4 17-12-4c-1 8-4 12-9 13-5-1-8-5-9-13l-12 4-4-17Z" fill="#fff" stroke="#111114" stroke-width="3"/>
+  <!-- Верхняя плашка улицы -->
+  <path d="M22 18c6-3 14-3 20 0l-.8 6H22.8L22 18Z" fill="#e40062" stroke="#111114" stroke-width="2"/>
+  <path d="M26 20.8h12" stroke="#fff" stroke-width="2"/>
+  <!-- Центральная плашка названия -->
+  <path d="m11 29 12-4h18l12 4-2.3 10-11-3H24.3l-11 3L11 29Z" fill="#fff2f7" stroke="#111114" stroke-width="2"/>
+  <path d="M18 31.2c8-2.7 20-2.7 28 0M19.5 35c7.3-2 17.7-2 25 0" stroke="#e40062" stroke-width="2.2"/>
+  <!-- Круглый номер дома -->
+  <path d="M24 37.5c1 8.2 3.7 11.9 8 12.8 4.3-.9 7-4.6 8-12.8H24Z" fill="#ffd21c" stroke="#111114" stroke-width="2"/>
+  <text x="32" y="48.5" fill="#111114" stroke="none" font-family="Arial, sans-serif" font-size="12" font-weight="900" text-anchor="middle">5</text>
+</svg>

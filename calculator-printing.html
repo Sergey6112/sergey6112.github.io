@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f6f7f9">
+  <title>Калькулятор полиграфии | МОНОПРИНТ</title>
+  <meta name="description" content="Рассчитайте предварительную стоимость визиток, листовок и буклетов в рекламно-производственной компании МОНОПРИНТ.">
+  <link rel="canonical" href="https://mono-print.ru/calculator-printing.html">
+  <link rel="icon" href="assets/favicon.ico" sizes="any">
+  <link rel="stylesheet" href="calculator.css">
+</head>
+<body>
+  <main class="calculator-shell">
+    <div class="decor-line decor-line--top" aria-hidden="true"></div>
+    <div class="decor-line decor-line--bottom" aria-hidden="true"></div>
+    <div class="calc-dots" aria-hidden="true"></div>
+
+    <header class="calculator-header">
+      <a class="back-button" href="index.html#catalog-panel" aria-label="Вернуться в каталог"><span aria-hidden="true"></span></a>
+      <a class="calculator-logo" href="index.html" aria-label="МОНОПРИНТ - на главную"><img src="assets/logo-monoprint-trimmed.png" alt="МОНОПРИНТ"></a>
+    </header>
+
+    <section class="calculator-title">
+      <img src="assets/category-printing.svg" alt="" aria-hidden="true">
+      <div>
+        <h1>Калькулятор<br>полиграфии</h1>
+        <p>Рассчитайте предварительную стоимость тиража</p>
+      </div>
+    </section>
+
+    <form class="calculator" id="printing-calculator">
+      <section class="calc-card" aria-labelledby="product-title">
+        <div class="section-heading">
+          <h2 id="product-title">1. Выберите продукцию</h2>
+          <span class="price-status" id="printing-price-status">Загрузка цен…</span>
+        </div>
+        <div class="product-tabs" role="radiogroup" aria-label="Вид полиграфии">
+          <label><input type="radio" name="product" value="businessCards" checked><span>Визитки</span></label>
+          <label><input type="radio" name="product" value="flyers"><span>Листовки</span></label>
+          <label><input type="radio" name="product" value="booklets"><span>Буклеты</span></label>
+        </div>
+      </section>
+
+      <section class="calc-card" aria-labelledby="params-title">
+        <h2 id="params-title">2. Параметры тиража</h2>
+        <div class="select-fields">
+          <label id="format-field"><span id="format-label">Исполнение</span><select id="print-format"></select></label>
+          <label id="paper-field"><span>Плотность бумаги</span><select id="paper-density"></select></label>
+          <label><span>Тираж</span><select id="print-quantity"></select></label>
+        </div>
+      </section>
+
+      <section class="calc-card" aria-labelledby="printing-options-title">
+        <h2 id="printing-options-title">3. Дополнительные опции</h2>
+        <div id="business-card-options">
+          <label class="check-row"><span><strong>Скругление углов</strong><small>Фиксированная доплата</small></span><input id="rounding" type="checkbox"><span class="check-mark" aria-hidden="true">✓</span></label>
+          <label class="check-row"><span><strong>Отверстие</strong><small>Стоимость рассчитывается за штуку</small></span><input id="hole" type="checkbox"><span class="check-mark" aria-hidden="true">✓</span></label>
+        </div>
+        <label class="design-row">Макет
+          <select id="printing-design-status"><option value="ready">Макет готов</option><option value="needed">Нужен дизайн</option></select>
+        </label>
+      </section>
+
+      <section class="summary-card" aria-live="polite">
+        <h2>Предварительный расчёт</h2>
+        <dl>
+          <div><dt>Продукция</dt><dd id="printing-summary-product">Визитки</dd></div>
+          <div><dt>Параметры</dt><dd id="printing-summary-params">Стандарт 300 г</dd></div>
+          <div><dt>Тираж</dt><dd id="printing-summary-quantity">100 шт.</dd></div>
+          <div><dt>Печать</dt><dd id="printing-summary-base">1 000 ₽</dd></div>
+          <div id="printing-options-summary" hidden><dt>Дополнительные опции</dt><dd id="printing-summary-options">0 ₽</dd></div>
+        </dl>
+        <div class="total-row"><span>Итого</span><strong id="printing-summary-total">1 000 ₽</strong></div>
+      </section>
+
+      <button class="max-submit" id="printing-max-submit" type="button">
+        <img src="assets/max.svg" alt="" aria-hidden="true"><span>Отправить расчёт в MAX</span>
+      </button>
+      <a class="catalog-return" href="index.html#catalog-panel">Вернуться в каталог</a>
+      <p class="calculation-note">Расчёт предварительный. Итоговую стоимость и доступность тиража подтвердит менеджер МОНОПРИНТ.</p>
+    </form>
+  </main>
+  <script src="calculator-printing.js"></script>
+</body>
+</html>
