@@ -164,5 +164,5 @@ function message() {
 [...form.elements.product].forEach(input=>input.addEventListener("change",configureProduct));
 formatSelect.addEventListener("change",configureDensities);densitySelect.addEventListener("change",configureQuantities);
 form.addEventListener("change",calculate);
-document.querySelector("#printing-max-submit").addEventListener("click",()=>window.open(`https://max.ru/:share?text=${encodeURIComponent(message())}`,"_blank","noopener,noreferrer"));
+document.querySelector("#printing-max-submit").addEventListener("click",()=>openMaxChat(message()));
 configureProduct();loadPrices();

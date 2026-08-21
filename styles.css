@@ -96,6 +96,7 @@ body {
 }
 
 .brand {
+  padding-top: clamp(14px, 2.4vw, 18px);
   text-align: center;
 }
 

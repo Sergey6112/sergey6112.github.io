@@ -1,5 +1,4 @@
 const PRICE_SHEET_CSV = "https://docs.google.com/spreadsheets/d/1WReItohuSFKGW5CgmueQOW9ZmqwWkQLshQBZhdjX4zU/export?format=csv&gid=872944395";
-const MAX_PROFILE = "https://max.ru/u/f9LHodD0cOK-8bOsjbWF1MatpsxchI5ix057xEPlfJnU2UN78zfdYixXzE4";
 
 const materials = {
   banner440: { label: "Баннер 440 г", price: 650, aliases: ["баннер 440"], column: 1 },
@@ -148,14 +147,9 @@ document.querySelectorAll("[data-quantity-step]").forEach((button) => {
 });
 
 document.querySelector("#max-submit").addEventListener("click", () => {
-  const message = buildMessage();
-  const shareUrl = `https://max.ru/:share?text=${encodeURIComponent(message)}`;
-  window.open(shareUrl, "_blank", "noopener,noreferrer");
+  openMaxChat(buildMessage());
 });
 
 renderPrices();
 calculate();
 loadLivePrices();
-
-// Адрес профиля оставлен в конфигурации для будущего подключения прямого MAX-бота.
-void MAX_PROFILE;

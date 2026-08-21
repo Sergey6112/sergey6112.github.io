@@ -21,5 +21,5 @@ document.querySelectorAll("[data-stamp-step]").forEach(button=>button.addEventLi
 document.querySelector("#stamp-configurator").addEventListener("input",update);
 document.querySelector("#stamp-configurator").addEventListener("change",update);
 file.addEventListener("change",()=>{document.querySelector("#stamp-file-label").textContent=file.files[0]?.name||"Загрузить файл";});
-document.querySelector("#stamp-max-submit").addEventListener("click",()=>window.open(`https://max.ru/:share?text=${encodeURIComponent(message())}`,"_blank","noopener,noreferrer"));
+document.querySelector("#stamp-max-submit").addEventListener("click",()=>openMaxChat(message()));
 update();

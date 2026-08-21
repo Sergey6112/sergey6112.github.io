@@ -49,5 +49,5 @@ closeButton.addEventListener("click",()=>setOpen(false));
 calculator.addEventListener("input",calculate);
 calculator.addEventListener("change",calculate);
 fileInput.addEventListener("change",()=>{document.querySelector("#neon-file-label").textContent=fileInput.files[0]?.name||"Загрузить файл";});
-document.querySelector("#neon-max-submit").addEventListener("click",()=>window.open(`https://max.ru/:share?text=${encodeURIComponent(message())}`,"_blank","noopener,noreferrer"));
+document.querySelector("#neon-max-submit").addEventListener("click",()=>openMaxChat(message()));
 calculate();
