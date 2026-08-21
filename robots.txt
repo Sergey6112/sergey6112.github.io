@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Host: mono-print.ru
+Sitemap: https://mono-print.ru/sitemap.xml

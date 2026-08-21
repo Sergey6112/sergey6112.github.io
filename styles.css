@@ -235,6 +235,7 @@ body {
   font-size: clamp(9px, 1.48vw, 10px);
   line-height: 1.35;
   text-align: center;
+  font-style: normal;
 }
 
 .contact-details span,
