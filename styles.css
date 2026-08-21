@@ -30,7 +30,7 @@ body {
   width: min(100%, var(--page-width));
   min-height: 100svh;
   margin: 0 auto;
-  padding: clamp(88px, 13.7vw, 140px) clamp(30px, 9.4vw, 64px) clamp(36px, 7vw, 72px);
+  padding: clamp(78px, 11.5vw, 92px) clamp(30px, 9.4vw, 64px) clamp(36px, 7vw, 72px);
   overflow: hidden;
   background:
     linear-gradient(135deg, rgba(255,255,255,.97) 0%, rgba(250,250,251,.94) 42%, rgba(238,239,241,.91) 100%);
@@ -99,28 +99,30 @@ body {
   text-align: center;
 }
 
-.brand h1 {
-  margin: 0;
-  color: #121417;
-  font-size: clamp(42px, 9.4vw, 64px);
-  font-weight: 800;
-  line-height: 1;
-  letter-spacing: -.055em;
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
-.brand p {
-  margin: 12px -10px 0;
-  color: var(--muted);
-  font-size: clamp(12px, 2.35vw, 16px);
-  font-weight: 400;
-  line-height: 1.2;
-  white-space: nowrap;
+.brand-logo {
+  display: block;
+  width: min(90%, 390px);
+  height: auto;
+  margin: 0 auto;
+  mix-blend-mode: multiply;
 }
 
 .actions {
   display: grid;
   gap: clamp(10px, 2.45vw, 17px);
-  margin-top: clamp(91px, 20.2vw, 138px);
+  margin-top: clamp(78px, 11.5vw, 92px);
 }
 
 .action-card,
@@ -218,7 +220,7 @@ body {
 
 .contacts {
   width: 100%;
-  margin: clamp(58px, 8.3vw, 70px) auto 0;
+  margin: clamp(80px, 11.5vw, 94px) auto 0;
 }
 
 .contact-details {
