@@ -8,6 +8,7 @@ const elementsInput=document.querySelector("#neon-elements");
 const fileInput=document.querySelector("#neon-file");
 const money=new Intl.NumberFormat("ru-RU",{maximumFractionDigits:0});
 const decimal=new Intl.NumberFormat("ru-RU",{maximumFractionDigits:1});
+const NEON_PRICE_FACTOR=0.9;
 
 function bounded(input,min,max,fallback){
   const value=Number(String(input.value).replace(",","."));
@@ -20,7 +21,10 @@ function result(){
   const height=bounded(heightInput,20,190,50);
   const length=bounded(lengthInput,1,50,6);
   const elements=Math.round(bounded(elementsInput,1,150,20));
-  const raw=1.1*(1.1*(base+(width/100*height/100*1.3*3200))+(length*1600)+(elements*160));
+  const materialCost=(base+(width/100*height/100*1.3*3200))*NEON_PRICE_FACTOR;
+  const neonCost=length*1600*NEON_PRICE_FACTOR;
+  const elementsCost=elements*160*NEON_PRICE_FACTOR;
+  const raw=1.1*(1.1*materialCost+neonCost+elementsCost);
   return{base,width,height,length,elements,total:Math.round(raw/100)*100,baseLabel:base===4900?"Цветное основание":"Прозрачное основание"};
 }
 

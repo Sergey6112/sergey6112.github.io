@@ -30,7 +30,7 @@ body {
   width: min(100%, var(--page-width));
   min-height: 100svh;
   margin: 0 auto;
-  padding: clamp(184px, 42vw, 218px) clamp(30px, 9.4vw, 64px) clamp(36px, 7vw, 72px);
+  padding: clamp(205px, 46vw, 245px) clamp(30px, 9.4vw, 64px) clamp(36px, 7vw, 72px);
   overflow: hidden;
   background:
     linear-gradient(135deg, rgba(255,255,255,.97) 0%, rgba(250,250,251,.94) 42%, rgba(238,239,241,.91) 100%);
@@ -101,7 +101,7 @@ body {
   top: 0;
   left: 50%;
   width: min(100%, var(--page-width));
-  padding: calc(10px + env(safe-area-inset-top)) 24px 13px;
+  padding: calc(18px + env(safe-area-inset-top)) 24px 13px;
   text-align: center;
   transform: translateX(-50%);
 }
@@ -124,7 +124,7 @@ body {
 
 .brand-logo {
   display: block;
-  width: clamp(205px, 38vw, 250px);
+  width: clamp(220px, 42vw, 270px);
   height: auto;
   margin: 0 auto;
   mix-blend-mode: multiply;
@@ -230,7 +230,7 @@ body {
 }
 
 .catalog-panel {
-  scroll-margin-top: clamp(170px, 42vw, 205px);
+  scroll-margin-top: clamp(190px, 46vw, 230px);
   padding: clamp(12px, 2.8vw, 19px);
   border: 1px solid rgba(255,255,255,.8);
   border-radius: clamp(20px, 3.2vw, 26px);

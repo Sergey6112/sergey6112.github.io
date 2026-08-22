@@ -44,37 +44,37 @@
             <input type="radio" name="material" value="banner440" checked>
             <span class="radio-mark" aria-hidden="true"></span>
             <span class="material-copy"><strong>Баннер 440 г</strong><small>Для улицы и помещений</small></span>
-            <strong class="material-price" data-price-for="banner440">от 650 ₽/м²</strong>
+            <strong class="material-price" data-price-for="banner440">650 ₽/м²</strong>
           </label>
           <label class="material-option">
             <input type="radio" name="material" value="selfAdhesive">
             <span class="radio-mark" aria-hidden="true"></span>
             <span class="material-copy"><strong>Самоклейка</strong><small>Для стекла и ровных поверхностей</small></span>
-            <strong class="material-price" data-price-for="selfAdhesive">от 800 ₽/м²</strong>
+            <strong class="material-price" data-price-for="selfAdhesive">800 ₽/м²</strong>
           </label>
           <label class="material-option">
             <input type="radio" name="material" value="mesh">
             <span class="radio-mark" aria-hidden="true"></span>
             <span class="material-copy"><strong>Баннерная сетка</strong><small>Для фасадов и ветреных мест</small></span>
-            <strong class="material-price" data-price-for="mesh">от 950 ₽/м²</strong>
+            <strong class="material-price" data-price-for="mesh">950 ₽/м²</strong>
           </label>
           <label class="material-option">
             <input type="radio" name="material" value="perforated">
             <span class="radio-mark" aria-hidden="true"></span>
             <span class="material-copy"><strong>Перфорированная плёнка</strong><small>Для оформления витрин</small></span>
-            <strong class="material-price" data-price-for="perforated">от 950 ₽/м²</strong>
+            <strong class="material-price" data-price-for="perforated">950 ₽/м²</strong>
           </label>
           <label class="material-option">
             <input type="radio" name="material" value="canvas">
             <span class="radio-mark" aria-hidden="true"></span>
             <span class="material-copy"><strong>Холст</strong><small>Интерьерная печать</small></span>
-            <strong class="material-price" data-price-for="canvas">от 3 300 ₽/м²</strong>
+            <strong class="material-price" data-price-for="canvas">3 300 ₽/м²</strong>
           </label>
           <label class="material-option">
             <input type="radio" name="material" value="poster">
             <span class="radio-mark" aria-hidden="true"></span>
             <span class="material-copy"><strong>Постерная бумага</strong><small>Афиши и интерьерные постеры</small></span>
-            <strong class="material-price" data-price-for="poster">от 850 ₽/м²</strong>
+            <strong class="material-price" data-price-for="poster">850 ₽/м²</strong>
           </label>
         </div>
         <p class="scroll-hint">Прокрутите список, чтобы увидеть все материалы</p>
@@ -99,7 +99,7 @@
 
       <section class="calc-card" aria-labelledby="options-title">
         <h2 id="options-title">3. Дополнительные опции</h2>
-        <label class="switch-row">
+        <label class="switch-row" id="eyelets-option">
           <span><strong>Люверсы по периметру</strong><small>Шаг 30 см · <span id="eyelet-rate">20 ₽/шт.</span></small></span>
           <input id="eyelets" type="checkbox" checked>
           <span class="switch" aria-hidden="true"></span>
@@ -117,8 +117,9 @@
         <dl>
           <div><dt>Материал</dt><dd id="summary-material">Баннер 440 г</dd></div>
           <div><dt>Площадь</dt><dd id="summary-area">6 м²</dd></div>
-          <div><dt>Печать</dt><dd id="summary-print">3 900 ₽</dd></div>
+          <div><dt id="summary-print-label">Печать</dt><dd id="summary-print">3 900 ₽</dd></div>
           <div id="eyelets-summary"><dt>Люверсы, примерно <span id="eyelet-count">34</span> шт.</dt><dd id="summary-eyelets">680 ₽</dd></div>
+          <div id="volume-discount-summary" hidden><dt>Скидка от объёма 10%</dt><dd id="summary-discount">−458 ₽</dd></div>
         </dl>
         <div class="total-row"><span>Итого</span><strong id="summary-total">4 580 ₽</strong></div>
       </section>
@@ -128,7 +129,7 @@
         <span>Открыть чат с расчётом в MAX</span>
       </button>
       <a class="catalog-return" href="index.html#catalog-panel">Вернуться в каталог</a>
-      <p class="calculation-note">Расчёт предварительный. При нажатии он скопируется, после чего откроется чат МОНОПРИНТ в MAX.</p>
+      <p class="calculation-note calculation-note--max">Расчёт предварительный. При нажатии он <strong>скопируется</strong>, после чего откроется чат МОНОПРИНТ в MAX. Нажмите <strong>«Вставить»</strong>, чтобы расчёт появился в чате.</p>
     </form>
   </main>
   <script src="max-chat.js"></script>

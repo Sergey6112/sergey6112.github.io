@@ -1,9 +1,12 @@
 const PRICE_SHEET_CSV = "https://docs.google.com/spreadsheets/d/1WReItohuSFKGW5CgmueQOW9ZmqwWkQLshQBZhdjX4zU/export?format=csv&gid=872944395";
+const VOLUME_DISCOUNT_FACTOR = 0.9;
+const VOLUME_DISCOUNT_THRESHOLD = 20;
+const SMALL_ORDER_PRICE = 700;
 
 const materials = {
-  banner440: { label: "Баннер 440 г", price: 650, aliases: ["баннер 440"], column: 1 },
+  banner440: { label: "Баннер 440 г", price: 650, aliases: ["баннер 440"], column: 1, eyelets: true },
   selfAdhesive: { label: "Самоклейка", price: 800, aliases: ["самоклейка"], column: 1 },
-  mesh: { label: "Баннерная сетка", price: 950, aliases: ["баннерная сетка"], column: 1 },
+  mesh: { label: "Баннерная сетка", price: 950, aliases: ["баннерная сетка"], column: 1, eyelets: true },
   perforated: { label: "Перфорированная плёнка", price: 950, aliases: ["пленка перфа", "плёнка перфа"], column: 2 },
   canvas: { label: "Холст", price: 3300, aliases: ["холст"], column: 2 },
   poster: { label: "Постерная бумага", price: 850, aliases: ["постер"], column: 2 }
@@ -16,6 +19,7 @@ const widthInput = document.querySelector("#width");
 const heightInput = document.querySelector("#height");
 const quantityInput = document.querySelector("#quantity");
 const eyeletsInput = document.querySelector("#eyelets");
+const eyeletsOption = document.querySelector("#eyelets-option");
 const designStatus = document.querySelector("#design-status");
 const priceStatus = document.querySelector("#price-status");
 
@@ -80,7 +84,7 @@ async function loadLivePrices() {
 function renderPrices() {
   Object.entries(materials).forEach(([key, material]) => {
     const node = document.querySelector(`[data-price-for="${key}"]`);
-    if (node) node.textContent = `от ${money.format(material.price)} ₽/м²`;
+    if (node) node.textContent = `${money.format(material.price)} ₽/м²`;
   });
   document.querySelector("#eyelet-rate").textContent = `${money.format(eyeletPrice)} ₽/шт.`;
 }
@@ -101,40 +105,53 @@ function calculation() {
   const quantity = Math.max(1, Math.round(positiveNumber(quantityInput, 1)));
   const material = currentMaterial();
   const area = width * height * quantity;
-  const printCost = area * material.price;
-  const eyeletCount = eyeletsInput.checked ? Math.ceil((2 * (width + height)) / 0.3) * quantity : 0;
+  const eyeletsAllowed = Boolean(material.eyelets);
+  eyeletsOption.hidden = !eyeletsAllowed;
+  eyeletsInput.disabled = !eyeletsAllowed;
+  if (!eyeletsAllowed) eyeletsInput.checked = false;
+  const smallOrder = area < 1 && material !== materials.canvas;
+  const printCost = smallOrder ? SMALL_ORDER_PRICE : area * material.price;
+  const eyeletCount = eyeletsAllowed && eyeletsInput.checked ? Math.ceil((2 * (width + height)) / 0.3) * quantity : 0;
   const eyeletsCost = eyeletCount * eyeletPrice;
-  return { width, height, quantity, material, area, printCost, eyeletCount, eyeletsCost, total: printCost + eyeletsCost };
+  const subtotal = printCost + eyeletsCost;
+  const volumeDiscount = area > VOLUME_DISCOUNT_THRESHOLD ? subtotal * (1 - VOLUME_DISCOUNT_FACTOR) : 0;
+  const total = subtotal - volumeDiscount;
+  return { width, height, quantity, material, area, printCost, smallOrder, eyeletCount, eyeletsCost, volumeDiscount, total };
 }
 
 function calculate() {
   const result = calculation();
   document.querySelector("#summary-material").textContent = result.material.label;
   document.querySelector("#summary-area").textContent = `${decimal.format(result.area)} м²`;
+  document.querySelector("#summary-print-label").textContent = result.smallOrder ? "Печать (минимальная стоимость)" : "Печать";
   document.querySelector("#summary-print").textContent = `${money.format(result.printCost)} ₽`;
   document.querySelector("#eyelet-count").textContent = result.eyeletCount;
   document.querySelector("#summary-eyelets").textContent = `${money.format(result.eyeletsCost)} ₽`;
-  document.querySelector("#eyelets-summary").hidden = !eyeletsInput.checked;
+  document.querySelector("#eyelets-summary").hidden = result.eyeletCount === 0;
+  document.querySelector("#volume-discount-summary").hidden = result.volumeDiscount === 0;
+  document.querySelector("#summary-discount").textContent = `−${money.format(result.volumeDiscount)} ₽`;
   document.querySelector("#summary-total").textContent = `${money.format(result.total)} ₽`;
 }
 
 function buildMessage() {
   const r = calculation();
-  const eyelets = eyeletsInput.checked ? `Да, примерно ${r.eyeletCount} шт. (${money.format(r.eyeletsCost)} ₽)` : "Нет";
+  const eyelets = r.eyeletCount ? `Да, примерно ${r.eyeletCount} шт. (${money.format(r.eyeletsCost)} ₽)` : "Нет";
   const design = designStatus.value === "needed" ? "Нужен дизайн" : "Макет готов";
   return [
     "Здравствуйте! Хочу заказать широкоформатную печать в МОНОПРИНТ.",
     "",
-    `Материал: ${r.material.label} - от ${money.format(r.material.price)} ₽/м²`,
+    `Материал: ${r.material.label} - ${money.format(r.material.price)} ₽/м²`,
     `Размер: ${decimal.format(r.width)} × ${decimal.format(r.height)} м`,
     `Количество: ${r.quantity} шт.`,
     `Общая площадь: ${decimal.format(r.area)} м²`,
+    r.smallOrder ? `Минимальная стоимость печати до 1 м²: ${money.format(SMALL_ORDER_PRICE)} ₽` : "",
     `Люверсы: ${eyelets}`,
     `Макет: ${design}`,
+    r.volumeDiscount ? `Скидка от объёма свыше 20 м²: 10% (−${money.format(r.volumeDiscount)} ₽)` : "",
     `Предварительная стоимость: ${money.format(r.total)} ₽`,
     "",
     "Прошу подтвердить расчёт и срок изготовления."
-  ].join("\n");
+  ].filter(Boolean).join("\n");
 }
 
 form.addEventListener("input", calculate);
