@@ -30,7 +30,7 @@ body {
   width: min(100%, var(--page-width));
   min-height: 100svh;
   margin: 0 auto;
-  padding: clamp(78px, 11.5vw, 92px) clamp(30px, 9.4vw, 64px) clamp(36px, 7vw, 72px);
+  padding: clamp(184px, 42vw, 218px) clamp(30px, 9.4vw, 64px) clamp(36px, 7vw, 72px);
   overflow: hidden;
   background:
     linear-gradient(135deg, rgba(255,255,255,.97) 0%, rgba(250,250,251,.94) 42%, rgba(238,239,241,.91) 100%);
@@ -96,8 +96,14 @@ body {
 }
 
 .brand {
-  padding-top: clamp(14px, 2.4vw, 18px);
+  position: fixed;
+  z-index: 0;
+  top: 0;
+  left: 50%;
+  width: min(100%, var(--page-width));
+  padding: calc(10px + env(safe-area-inset-top)) 24px 13px;
   text-align: center;
+  transform: translateX(-50%);
 }
 
 .brand-home {
@@ -118,16 +124,18 @@ body {
 
 .brand-logo {
   display: block;
-  width: min(90%, 390px);
+  width: clamp(205px, 38vw, 250px);
   height: auto;
   margin: 0 auto;
   mix-blend-mode: multiply;
 }
 
 .actions {
+  position: relative;
+  z-index: 2;
   display: grid;
   gap: clamp(10px, 2.45vw, 17px);
-  margin-top: clamp(78px, 11.5vw, 92px);
+  margin-top: 0;
 }
 
 .action-card,
@@ -222,6 +230,7 @@ body {
 }
 
 .catalog-panel {
+  scroll-margin-top: clamp(170px, 42vw, 205px);
   padding: clamp(12px, 2.8vw, 19px);
   border: 1px solid rgba(255,255,255,.8);
   border-radius: clamp(20px, 3.2vw, 26px);
@@ -296,6 +305,8 @@ a.category-card:hover {
 }
 
 .contacts {
+  position: relative;
+  z-index: 2;
   width: 100%;
   margin: clamp(80px, 11.5vw, 94px) auto 0;
 }
