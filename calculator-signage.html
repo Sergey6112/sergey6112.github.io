@@ -25,8 +25,26 @@
         <button class="sign-type-button" type="button"><img src="assets/sign-lightbox.svg" alt=""><strong>Световой короб</strong></button>
         <button class="sign-type-button" type="button"><img src="assets/sign-bracket.svg" alt=""><strong>Панель-кронштейн</strong></button>
         <button class="sign-type-button" type="button"><img src="assets/sign-flat.svg" alt=""><strong>Несветовая вывеска</strong></button>
-        <button class="sign-type-button" type="button"><img src="assets/sign-facade.svg" alt=""><strong>Оформление фасада</strong></button>
+        <button class="sign-type-button sign-type-button--details" id="facade-toggle" type="button" aria-expanded="false" aria-controls="facade-info"><img src="assets/sign-facade.svg" alt=""><strong>Оформление фасада</strong><span class="card-action">Подробнее</span></button>
       </div>
+    </section>
+
+    <section class="facade-info" id="facade-info" hidden>
+      <div class="neon-heading"><div><span>Комплексное решение</span><h2>Оформление фасада</h2></div><button type="button" id="facade-close" aria-label="Свернуть описание">×</button></div>
+      <section class="calc-card facade-intro">
+        <h3>Сделаем фасад заметным и узнаваемым</h3>
+        <p>Оформим входную группу, окна, витрины и панели в едином стиле. Подготовим макет, подберём подходящую плёнку и аккуратно выполним монтаж.</p>
+      </section>
+      <section class="facade-methods" aria-label="Способы оформления фасада">
+        <article><b>01</b><div><h3>Плоттерная резка плёнок</h3><p>Подходит для чётких надписей, логотипов, полос и декоративных элементов из цветных виниловых плёнок. Изображение получается аккуратным, ярким и без фона.</p></div></article>
+        <article><b>02</b><div><h3>Закатка печатной плёнкой</h3><p>Используется для полноцветных изображений, фотографий, градиентов и сплошного оформления. Печатной плёнкой можно закрыть отдельные зоны или большую поверхность фасада.</p></div></article>
+      </section>
+      <section class="calc-card facade-benefits">
+        <h3>Почему стоит обратиться в МОНОПРИНТ</h3>
+        <ul><li>Подготовим дизайн с учётом размеров и особенностей фасада.</li><li>Подберём способ оформления под задачу и бюджет.</li><li>Изготовим все элементы в одном месте и сохраним единый фирменный стиль.</li><li>Аккуратно смонтируем плёнку без пузырей, складок и перекосов.</li></ul>
+      </section>
+      <button class="max-submit" id="facade-max-submit" type="button"><img src="assets/max.svg" alt="" aria-hidden="true"><span>Обсудить оформление в MAX</span></button>
+      <p class="calculation-note calculation-note--max">Сообщение <strong>скопируется</strong>, после чего откроется чат МОНОПРИНТ в MAX. Нажмите <strong>«Вставить»</strong>, чтобы оно появилось в чате.</p>
     </section>
 
     <form class="neon-calculator" id="neon-calculator" hidden>

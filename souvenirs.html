@@ -1,36 +1,68 @@
 <!doctype html>
 <html lang="ru">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#f6f7f9">
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#f6f7f9">
   <title>Сувенирная продукция | МОНОПРИНТ</title>
   <meta name="description" content="Сувенирная продукция МОНОПРИНТ: футболки, кружки, ручки, флаги, пакеты и магниты с вашим дизайном.">
-  <link rel="canonical" href="https://mono-print.ru/souvenirs.html">
-  <link rel="icon" href="assets/favicon.ico" sizes="any">
-  <link rel="stylesheet" href="calculator.css">
+  <link rel="canonical" href="https://mono-print.ru/souvenirs.html"><link rel="icon" href="assets/favicon.ico" sizes="any"><link rel="stylesheet" href="calculator.css">
 </head>
 <body>
-  <main class="calculator-shell souvenirs-page">
+  <main class="calculator-shell souvenirs-page product-details-page">
     <div class="decor-line decor-line--top" aria-hidden="true"></div><div class="decor-line decor-line--bottom" aria-hidden="true"></div><div class="calc-dots" aria-hidden="true"></div>
     <header class="calculator-header"><a class="back-button" href="index.html#catalog-panel" aria-label="Вернуться в каталог"><span aria-hidden="true"></span></a><a class="calculator-logo" href="index.html" aria-label="МОНОПРИНТ - на главную"><img src="assets/logo-monoprint-trimmed.png" alt="МОНОПРИНТ"></a></header>
-
     <section class="calculator-title"><img src="assets/category-souvenirs.svg" alt="" aria-hidden="true"><div><h1>Сувенирная<br>продукция</h1><p>Нанесём ваш логотип, надпись или изображение</p></div></section>
 
     <section class="calc-card sign-type-card" aria-labelledby="souvenir-type-title">
       <h2 id="souvenir-type-title">Виды продукции</h2>
       <div class="sign-type-grid souvenir-type-grid">
-        <article class="sign-type-button"><img src="assets/souvenir-tshirt.svg" alt=""><strong>Футболки</strong></article>
-        <article class="sign-type-button"><img src="assets/souvenir-mug.svg" alt=""><strong>Кружки</strong></article>
-        <article class="sign-type-button"><img src="assets/souvenir-pen.svg" alt=""><strong>Ручки</strong></article>
-        <article class="sign-type-button"><img src="assets/souvenir-flag.svg" alt=""><strong>Флаги</strong></article>
-        <article class="sign-type-button"><img src="assets/souvenir-bag.svg" alt=""><strong>Пакеты</strong></article>
-        <article class="sign-type-button"><img src="assets/souvenir-magnet.svg" alt=""><strong>Магниты</strong></article>
+        <button class="sign-type-button product-detail-button" type="button" data-target="souvenir-tshirts" aria-expanded="false"><img src="assets/souvenir-tshirt.svg" alt=""><strong>Футболки</strong><span class="card-action">Подробнее</span></button>
+        <button class="sign-type-button product-detail-button" type="button" data-target="souvenir-mugs" aria-expanded="false"><img src="assets/souvenir-mug.svg" alt=""><strong>Кружки</strong><span class="card-action">Подробнее</span></button>
+        <button class="sign-type-button product-detail-button" type="button" data-target="souvenir-pens" aria-expanded="false"><img src="assets/souvenir-pen.svg" alt=""><strong>Ручки</strong><span class="card-action">Подробнее</span></button>
+        <button class="sign-type-button product-detail-button" type="button" data-target="souvenir-flags" aria-expanded="false"><img src="assets/souvenir-flag.svg" alt=""><strong>Флаги</strong><span class="card-action">Подробнее</span></button>
+        <button class="sign-type-button product-detail-button" type="button" data-target="souvenir-bags" aria-expanded="false"><img src="assets/souvenir-bag.svg" alt=""><strong>Пакеты</strong><span class="card-action">Подробнее</span></button>
+        <button class="sign-type-button product-detail-button" type="button" data-target="souvenir-magnets" aria-expanded="false"><img src="assets/souvenir-magnet.svg" alt=""><strong>Магниты</strong><span class="card-action">Подробнее</span></button>
       </div>
     </section>
+
+    <section class="product-detail-section" id="souvenir-tshirts" hidden><div class="neon-heading"><div><span>Сувенирная продукция</span><h2>Футболки</h2></div><button class="product-details-close" type="button" aria-label="Свернуть">×</button></div><div class="product-service-grid">
+      <article><b>ЛГ</b><div><h3>Футболки с логотипом</h3><p>Для сотрудников, промоакций, выставок и корпоративных мероприятий.</p></div></article>
+      <article><b>МР</b><div><h3>Корпоративный мерч</h3><p>Фирменные изображения, слоганы и принты для команды или подарочных наборов.</p></div></article>
+      <article><b>1×</b><div><h3>Индивидуальная печать</h3><p>Именные надписи, фотографии и авторские изображения для подарка.</p></div></article>
+    </div><p class="product-detail-note">Способ нанесения подберём по ткани, изображению, размеру и количеству изделий.</p></section>
+
+    <section class="product-detail-section" id="souvenir-mugs" hidden><div class="neon-heading"><div><span>Сувенирная продукция</span><h2>Кружки</h2></div><button class="product-details-close" type="button" aria-label="Свернуть">×</button></div><div class="product-service-grid">
+      <article><b>ЛГ</b><div><h3>Кружки с логотипом</h3><p>Фирменные кружки для офиса, сотрудников, клиентов и партнёров.</p></div></article>
+      <article><b>ФО</b><div><h3>Кружки с фотографией</h3><p>Полноцветное изображение, поздравление или памятный дизайн.</p></div></article>
+      <article><b>ИМ</b><div><h3>Именные кружки</h3><p>Имя, должность, персональная надпись или индивидуальный макет.</p></div></article>
+    </div><p class="product-detail-note">Поможем адаптировать изображение под область нанесения и подготовить макет.</p></section>
+
+    <section class="product-detail-section" id="souvenir-pens" hidden><div class="neon-heading"><div><span>Сувенирная продукция</span><h2>Ручки</h2></div><button class="product-details-close" type="button" aria-label="Свернуть">×</button></div><div class="product-service-grid">
+      <article><b>ЛГ</b><div><h3>Ручки с логотипом</h3><p>Компактное фирменное нанесение для ежедневного использования.</p></div></article>
+      <article><b>КТ</b><div><h3>Ручки с контактами</h3><p>Название компании, телефон, сайт или короткое рекламное сообщение.</p></div></article>
+      <article><b>PR</b><div><h3>Промотиражи</h3><p>Для раздачи на выставках, мероприятиях, презентациях и в точках продаж.</p></div></article>
+    </div><p class="product-detail-note">Подберём подходящую модель ручки и способ нанесения под макет и тираж.</p></section>
+
+    <section class="product-detail-section" id="souvenir-flags" hidden><div class="neon-heading"><div><span>Сувенирная продукция</span><h2>Флаги</h2></div><button class="product-details-close" type="button" aria-label="Свернуть">×</button></div><div class="product-service-grid">
+      <article><b>КФ</b><div><h3>Корпоративные флаги</h3><p>Логотип, фирменные цвета и символика компании или организации.</p></div></article>
+      <article><b>РК</b><div><h3>Рекламные флаги</h3><p>Для фасадов, мероприятий, выставочных площадок и промозон.</p></div></article>
+      <article><b>НС</b><div><h3>Настольные флажки</h3><p>Компактное оформление стойки, ресепшена, кабинета или переговорной.</p></div></article>
+    </div><p class="product-detail-note">Размер, ткань и крепление подберём с учётом места размещения.</p></section>
+
+    <section class="product-detail-section" id="souvenir-bags" hidden><div class="neon-heading"><div><span>Сувенирная продукция</span><h2>Пакеты</h2></div><button class="product-details-close" type="button" aria-label="Свернуть">×</button></div><div class="product-service-grid">
+      <article><b>БР</b><div><h3>Брендированная упаковка</h3><p>Логотип и фирменное оформление для выдачи товаров и заказов.</p></div></article>
+      <article><b>PR</b><div><h3>Промопакеты</h3><p>Для выставок, презентаций, мероприятий и рекламных материалов.</p></div></article>
+      <article><b>ПД</b><div><h3>Подарочные пакеты</h3><p>Индивидуальный дизайн для корпоративных и персональных подарков.</p></div></article>
+    </div><p class="product-detail-note">Подберём основу, размер и нанесение под вес содержимого, тираж и задачу.</p></section>
+
+    <section class="product-detail-section" id="souvenir-magnets" hidden><div class="neon-heading"><div><span>Сувенирная продукция</span><h2>Магниты</h2></div><button class="product-details-close" type="button" aria-label="Свернуть">×</button></div><div class="product-service-grid">
+      <article><b>РК</b><div><h3>Рекламные магниты</h3><p>Логотип, контакты, список услуг или полезная информация о компании.</p></div></article>
+      <article><b>СВ</b><div><h3>Сувенирные магниты</h3><p>Достопримечательности, события, изображения и памятные надписи.</p></div></article>
+      <article><b>ФО</b><div><h3>Магниты с фотографией</h3><p>Индивидуальные макеты для праздников, подарков и семейных событий.</p></div></article>
+    </div><p class="product-detail-note">Изготовим по готовому дизайну или подготовим макет под выбранную форму.</p></section>
 
     <p class="souvenir-note">Поможем подобрать основу и способ нанесения под тираж, бюджет и задачу.</p>
     <a class="catalog-return signage-return" href="index.html#catalog-panel">Вернуться в каталог</a>
   </main>
+  <script src="product-details.js"></script>
 </body>
 </html>

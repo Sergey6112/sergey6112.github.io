@@ -6,6 +6,9 @@ const heightInput=document.querySelector("#neon-height");
 const lengthInput=document.querySelector("#neon-length");
 const elementsInput=document.querySelector("#neon-elements");
 const fileInput=document.querySelector("#neon-file");
+const facadeToggle=document.querySelector("#facade-toggle");
+const facadeInfo=document.querySelector("#facade-info");
+const facadeClose=document.querySelector("#facade-close");
 const money=new Intl.NumberFormat("ru-RU",{maximumFractionDigits:0});
 const decimal=new Intl.NumberFormat("ru-RU",{maximumFractionDigits:1});
 const NEON_PRICE_FACTOR=0.9;
@@ -42,16 +45,27 @@ function setOpen(open,focus=true){
   else if(focus){toggle.focus();}
 }
 
+function setFacadeOpen(open,focus=true){
+  facadeInfo.hidden=!open;
+  facadeToggle.setAttribute("aria-expanded",String(open));
+  facadeToggle.classList.toggle("is-active",open);
+  if(open){requestAnimationFrame(()=>facadeInfo.scrollIntoView({behavior:"smooth",block:"start"}));}
+  else if(focus){facadeToggle.focus();}
+}
+
 function message(){
   const value=result();
   const file=fileInput.files[0]?.name||"не выбран";
   return["Здравствуйте! Хочу заказать неоновую вывеску в МОНОПРИНТ.","",`Основание: ${value.baseLabel}`,`Размер: ${value.width} × ${value.height} см`,`Длина гибкого неона: ${decimal.format(value.length)} м`,`Количество элементов: ${value.elements}`,`Ориентировочная стоимость: ${money.format(value.total)} ₽`,`Файл: ${file}`,"","Прошу уточнить стоимость и срок изготовления.",file!=="не выбран"?"Файл прикреплю следующим сообщением.":""].filter(Boolean).join("\n");
 }
 
-toggle.addEventListener("click",()=>setOpen(calculator.hidden));
+toggle.addEventListener("click",()=>{const open=calculator.hidden;if(open)setFacadeOpen(false,false);setOpen(open);});
 closeButton.addEventListener("click",()=>setOpen(false));
+facadeToggle.addEventListener("click",()=>{const open=facadeInfo.hidden;if(open)setOpen(false,false);setFacadeOpen(open);});
+facadeClose.addEventListener("click",()=>setFacadeOpen(false));
 calculator.addEventListener("input",calculate);
 calculator.addEventListener("change",calculate);
 fileInput.addEventListener("change",()=>{document.querySelector("#neon-file-label").textContent=fileInput.files[0]?.name||"Загрузить файл";});
 document.querySelector("#neon-max-submit").addEventListener("click",()=>openMaxChat(message()));
+document.querySelector("#facade-max-submit").addEventListener("click",()=>openMaxChat("Здравствуйте! Хочу оформить фасад в МОНОПРИНТ. Нужна консультация по способу оформления: плоттерная резка цветных плёнок или закатка полноцветной печатной плёнкой. Прошу помочь подобрать подходящий вариант и рассчитать стоимость."));
 calculate();
