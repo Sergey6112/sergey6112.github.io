@@ -27,9 +27,3 @@ document.querySelectorAll(".product-details-close").forEach(button=>{
     opener?.focus();
   });
 });
-
-const initialProductId=location.hash.slice(1);
-if(productDetailSections.some(section=>section.id===initialProductId)){
-  showProductDetails(initialProductId);
-  requestAnimationFrame(()=>document.getElementById(initialProductId)?.scrollIntoView({block:"start"}));
-}
