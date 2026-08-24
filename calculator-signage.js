@@ -9,6 +9,8 @@ const fileInput=document.querySelector("#neon-file");
 const facadeToggle=document.querySelector("#facade-toggle");
 const facadeInfo=document.querySelector("#facade-info");
 const facadeClose=document.querySelector("#facade-close");
+const signProductToggles=[...document.querySelectorAll(".sign-product-toggle")];
+const signProductSections=[...document.querySelectorAll(".sign-product-info")];
 const money=new Intl.NumberFormat("ru-RU",{maximumFractionDigits:0});
 const decimal=new Intl.NumberFormat("ru-RU",{maximumFractionDigits:1});
 const NEON_PRICE_FACTOR=0.9;
@@ -53,19 +55,42 @@ function setFacadeOpen(open,focus=true){
   else if(focus){facadeToggle.focus();}
 }
 
+function closeSignProducts(focus=false){
+  const active=signProductToggles.find(button=>button.getAttribute("aria-expanded")==="true");
+  signProductSections.forEach(section=>{section.hidden=true;});
+  signProductToggles.forEach(button=>{button.classList.remove("is-active");button.setAttribute("aria-expanded","false");});
+  if(focus)active?.focus();
+}
+
+function openSignProduct(button){
+  const section=document.getElementById(button.dataset.target);
+  const alreadyOpen=button.getAttribute("aria-expanded")==="true";
+  closeSignProducts();
+  if(alreadyOpen){button.focus();return;}
+  setOpen(false,false);
+  setFacadeOpen(false,false);
+  section.hidden=false;
+  button.classList.add("is-active");
+  button.setAttribute("aria-expanded","true");
+  requestAnimationFrame(()=>section.scrollIntoView({behavior:"smooth",block:"start"}));
+}
+
 function message(){
   const value=result();
   const file=fileInput.files[0]?.name||"не выбран";
   return["Здравствуйте! Хочу заказать неоновую вывеску в МОНОПРИНТ.","",`Основание: ${value.baseLabel}`,`Размер: ${value.width} × ${value.height} см`,`Длина гибкого неона: ${decimal.format(value.length)} м`,`Количество элементов: ${value.elements}`,`Ориентировочная стоимость: ${money.format(value.total)} ₽`,`Файл: ${file}`,"","Прошу уточнить стоимость и срок изготовления.",file!=="не выбран"?"Файл прикреплю следующим сообщением.":""].filter(Boolean).join("\n");
 }
 
-toggle.addEventListener("click",()=>{const open=calculator.hidden;if(open)setFacadeOpen(false,false);setOpen(open);});
+toggle.addEventListener("click",()=>{const open=calculator.hidden;if(open){setFacadeOpen(false,false);closeSignProducts();}setOpen(open);});
 closeButton.addEventListener("click",()=>setOpen(false));
-facadeToggle.addEventListener("click",()=>{const open=facadeInfo.hidden;if(open)setOpen(false,false);setFacadeOpen(open);});
+facadeToggle.addEventListener("click",()=>{const open=facadeInfo.hidden;if(open){setOpen(false,false);closeSignProducts();}setFacadeOpen(open);});
 facadeClose.addEventListener("click",()=>setFacadeOpen(false));
 calculator.addEventListener("input",calculate);
 calculator.addEventListener("change",calculate);
 fileInput.addEventListener("change",()=>{document.querySelector("#neon-file-label").textContent=fileInput.files[0]?.name||"Загрузить файл";});
 document.querySelector("#neon-max-submit").addEventListener("click",()=>openMaxChat(message()));
 document.querySelector("#facade-max-submit").addEventListener("click",()=>openMaxChat("Здравствуйте! Хочу оформить фасад в МОНОПРИНТ. Нужна консультация по способу оформления: плоттерная резка цветных плёнок или закатка полноцветной печатной плёнкой. Прошу помочь подобрать подходящий вариант и рассчитать стоимость."));
+signProductToggles.forEach(button=>button.addEventListener("click",()=>openSignProduct(button)));
+document.querySelectorAll(".sign-product-close").forEach(button=>button.addEventListener("click",()=>closeSignProducts(true)));
+document.querySelectorAll(".sign-detail-submit").forEach(button=>button.addEventListener("click",()=>openMaxChat(`Здравствуйте! Хочу заказать ${button.dataset.signName} в МОНОПРИНТ. Прошу помочь выбрать вариант изготовления и рассчитать стоимость. Могу отправить размеры, логотип и фотографию места установки.`)));
 calculate();

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#f6f7f9">
   <title>Вывески | МОНОПРИНТ</title>
-  <meta name="description" content="Виды вывесок МОНОПРИНТ и предварительный калькулятор неоновой вывески.">
+  <meta name="description" content="Объёмные буквы, световые короба, панели-кронштейны, несветовые вывески, оформление фасадов и калькулятор неоновой вывески МОНОПРИНТ.">
   <link rel="canonical" href="https://mono-print.ru/calculator-signage.html">
   <link rel="icon" href="assets/favicon.ico" sizes="any">
   <link rel="stylesheet" href="calculator.css">
@@ -21,12 +21,64 @@
       <h2 id="sign-type-title">Виды вывесок</h2>
       <div class="sign-type-grid">
         <button class="sign-type-button sign-type-button--neon" id="neon-toggle" type="button" aria-expanded="false" aria-controls="neon-calculator"><img src="assets/sign-neon.svg" alt=""><strong>Неоновая вывеска</strong><span class="card-action">Рассчитать</span></button>
-        <button class="sign-type-button" type="button"><img src="assets/sign-letters.svg" alt=""><strong>Объёмные буквы</strong></button>
-        <button class="sign-type-button" type="button"><img src="assets/sign-lightbox.svg" alt=""><strong>Световой короб</strong></button>
-        <button class="sign-type-button" type="button"><img src="assets/sign-bracket.svg" alt=""><strong>Панель-кронштейн</strong></button>
-        <button class="sign-type-button" type="button"><img src="assets/sign-flat.svg" alt=""><strong>Несветовая вывеска</strong></button>
+        <button class="sign-type-button sign-product-toggle" type="button" data-target="sign-letters-info" aria-expanded="false" aria-controls="sign-letters-info"><img src="assets/sign-letters.svg" alt=""><strong>Объёмные буквы</strong><span class="card-action">Подробнее</span></button>
+        <button class="sign-type-button sign-product-toggle" type="button" data-target="sign-lightbox-info" aria-expanded="false" aria-controls="sign-lightbox-info"><img src="assets/sign-lightbox.svg" alt=""><strong>Световой короб</strong><span class="card-action">Подробнее</span></button>
+        <button class="sign-type-button sign-product-toggle" type="button" data-target="sign-bracket-info" aria-expanded="false" aria-controls="sign-bracket-info"><img src="assets/sign-bracket.svg" alt=""><strong>Панель-кронштейн</strong><span class="card-action">Подробнее</span></button>
+        <button class="sign-type-button sign-product-toggle" type="button" data-target="sign-flat-info" aria-expanded="false" aria-controls="sign-flat-info"><img src="assets/sign-flat.svg" alt=""><strong>Несветовая вывеска</strong><span class="card-action">Подробнее</span></button>
         <button class="sign-type-button sign-type-button--details" id="facade-toggle" type="button" aria-expanded="false" aria-controls="facade-info"><img src="assets/sign-facade.svg" alt=""><strong>Оформление фасада</strong><span class="card-action">Подробнее</span></button>
       </div>
+    </section>
+
+    <section class="product-detail-section sign-product-info" id="sign-letters-info" hidden>
+      <div class="neon-heading"><div><span>Вывески</span><h2>Объёмные буквы</h2></div><button class="sign-product-close" type="button" aria-label="Свернуть">×</button></div>
+      <div class="product-service-grid">
+        <article><span class="product-service-icon"><img src="assets/sign-sub-letters-front.svg" alt=""></span><div><h3>С лицевым свечением</h3><p>Свет проходит через лицевую часть из акрила. Яркий и хорошо читаемый вариант для фасада, входной группы или интерьера.</p></div></article>
+        <article><span class="product-service-icon"><img src="assets/sign-sub-letters-halo.svg" alt=""></span><div><h3>Контражурные буквы</h3><p>Подсветка направлена на стену и создаёт мягкий световой ореол вокруг каждой буквы. Подходит для аккуратного премиального оформления.</p></div></article>
+        <article><span class="product-service-icon"><img src="assets/sign-sub-letters-combined.svg" alt=""></span><div><h3>Комбинированное свечение</h3><p>Одновременно светятся лицевая часть и контур за буквой. Вывеска получается особенно заметной вечером и ночью.</p></div></article>
+        <article><span class="product-service-icon"><img src="assets/sign-sub-letters-unlit.svg" alt=""></span><div><h3>Несветовые буквы</h3><p>Объёмные элементы без внутренней подсветки из ПВХ, акрила, композита или металла. Для помещений и хорошо освещённых фасадов.</p></div></article>
+      </div>
+      <p class="product-detail-note">Подберём глубину, материал, цвет боковин и тип подсветки под место установки. Перед изготовлением подготовим визуализацию вывески.</p>
+      <button class="max-submit sign-detail-submit" type="button" data-sign-name="объёмные буквы"><img src="assets/max.svg" alt="" aria-hidden="true"><span>Обсудить вывеску в MAX</span></button>
+      <p class="calculation-note calculation-note--max">Сообщение <strong>скопируется</strong>, после чего откроется чат МОНОПРИНТ в MAX. Нажмите <strong>«Вставить»</strong>, чтобы оно появилось в чате.</p>
+    </section>
+
+    <section class="product-detail-section sign-product-info" id="sign-lightbox-info" hidden>
+      <div class="neon-heading"><div><span>Вывески</span><h2>Световой короб</h2></div><button class="sign-product-close" type="button" aria-label="Свернуть">×</button></div>
+      <div class="product-service-grid">
+        <article><span class="product-service-icon"><img src="assets/sign-sub-box-acrylic.svg" alt=""></span><div><h3>С лицом из акрила</h3><p>Равномерно светящаяся лицевая панель с полноцветной печатью или аппликацией плёнками. Подходит для компактных и средних вывесок.</p></div></article>
+        <article><span class="product-service-icon"><img src="assets/sign-sub-box-banner.svg" alt=""></span><div><h3>С баннерной тканью</h3><p>Световой короб большого размера с натяжным лицом. Баннер позволяет сделать цельное изображение без заметных стыков.</p></div></article>
+        <article><span class="product-service-icon"><img src="assets/sign-sub-box-composite.svg" alt=""></span><div><h3>Из композита с инкрустацией</h3><p>Лицевая панель из композита с прорезанными буквами и логотипом из акрила. Выглядит аккуратно и современно.</p></div></article>
+        <article><span class="product-service-icon"><img src="assets/sign-sub-box-shaped.svg" alt=""></span><div><h3>Фигурный световой короб</h3><p>Короб повторяет форму логотипа, символа или товара. Хорошо подходит для кафе, магазинов и фирменных точек продаж.</p></div></article>
+      </div>
+      <p class="product-detail-note">Конструкция, глубина короба и материал лицевой части зависят от размера, места установки и требуемой яркости.</p>
+      <button class="max-submit sign-detail-submit" type="button" data-sign-name="световой короб"><img src="assets/max.svg" alt="" aria-hidden="true"><span>Обсудить вывеску в MAX</span></button>
+      <p class="calculation-note calculation-note--max">Сообщение <strong>скопируется</strong>, после чего откроется чат МОНОПРИНТ в MAX. Нажмите <strong>«Вставить»</strong>, чтобы оно появилось в чате.</p>
+    </section>
+
+    <section class="product-detail-section sign-product-info" id="sign-bracket-info" hidden>
+      <div class="neon-heading"><div><span>Вывески</span><h2>Панель-кронштейн</h2></div><button class="sign-product-close" type="button" aria-label="Свернуть">×</button></div>
+      <div class="product-service-grid">
+        <article><span class="product-service-icon"><img src="assets/sign-sub-bracket-double.svg" alt=""></span><div><h3>Двусторонняя конструкция</h3><p>Размещается перпендикулярно фасаду, поэтому информацию хорошо видно людям, идущим с обеих сторон улицы.</p></div></article>
+        <article><span class="product-service-icon"><img src="assets/sign-sub-bracket-light.svg" alt=""></span><div><h3>Световой кронштейн</h3><p>Внутренняя светодиодная подсветка делает вывеску заметной в тёмное время суток. Возможна подсветка всей поверхности или отдельных элементов.</p></div></article>
+        <article><span class="product-service-icon"><img src="assets/sign-sub-bracket-unlit.svg" alt=""></span><div><h3>Несветовой кронштейн</h3><p>Практичный вариант из композита, ПВХ, акрила или металла для помещений, торговых рядов и освещённых фасадов.</p></div></article>
+        <article><span class="product-service-icon"><img src="assets/sign-sub-bracket-shaped.svg" alt=""></span><div><h3>Фигурная форма</h3><p>Контур панели повторяет логотип или тематический символ. Дополнительно можно использовать объёмные элементы и декоративный кронштейн.</p></div></article>
+      </div>
+      <p class="product-detail-note">При расчёте учитываем размер, вес конструкции, ветровую нагрузку, вылет от стены и особенности крепления к фасаду.</p>
+      <button class="max-submit sign-detail-submit" type="button" data-sign-name="панель-кронштейн"><img src="assets/max.svg" alt="" aria-hidden="true"><span>Обсудить вывеску в MAX</span></button>
+      <p class="calculation-note calculation-note--max">Сообщение <strong>скопируется</strong>, после чего откроется чат МОНОПРИНТ в MAX. Нажмите <strong>«Вставить»</strong>, чтобы оно появилось в чате.</p>
+    </section>
+
+    <section class="product-detail-section sign-product-info" id="sign-flat-info" hidden>
+      <div class="neon-heading"><div><span>Вывески</span><h2>Несветовая вывеска</h2></div><button class="sign-product-close" type="button" aria-label="Свернуть">×</button></div>
+      <div class="product-service-grid">
+        <article><span class="product-service-icon"><img src="assets/sign-sub-flat-pvc.svg" alt=""></span><div><h3>Из ПВХ</h3><p>Лёгкая вывеска для помещений и временного наружного размещения. Изображение наносится печатью или цветными виниловыми плёнками.</p></div></article>
+        <article><span class="product-service-icon"><img src="assets/sign-sub-flat-acrylic.svg" alt=""></span><div><h3>Из акрила</h3><p>Глянцевая аккуратная поверхность для интерьерных логотипов, офисов, салонов и навигационных вывесок.</p></div></article>
+        <article><span class="product-service-icon"><img src="assets/sign-sub-flat-composite.svg" alt=""></span><div><h3>Из композита</h3><p>Жёсткая и долговечная основа для фасада. Подходит для печати, плёночной аппликации и установки накладных букв.</p></div></article>
+        <article><span class="product-service-icon"><img src="assets/sign-sub-flat-raised.svg" alt=""></span><div><h3>С объёмными элементами</h3><p>Плоская основа дополняется накладными буквами, логотипом или декоративными деталями, чтобы вывеска выглядела выразительнее.</p></div></article>
+      </div>
+      <p class="product-detail-note">Поможем выбрать основу по размеру, месту размещения и сроку эксплуатации, подготовим макет и предусмотрим подходящие крепления.</p>
+      <button class="max-submit sign-detail-submit" type="button" data-sign-name="несветовую вывеску"><img src="assets/max.svg" alt="" aria-hidden="true"><span>Обсудить вывеску в MAX</span></button>
+      <p class="calculation-note calculation-note--max">Сообщение <strong>скопируется</strong>, после чего откроется чат МОНОПРИНТ в MAX. Нажмите <strong>«Вставить»</strong>, чтобы оно появилось в чате.</p>
     </section>
 
     <section class="facade-info" id="facade-info" hidden>
