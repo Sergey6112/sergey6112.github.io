@@ -34,18 +34,7 @@ if (catalogToggle && catalogPanel) {
   const closeCatalog = () => {
     catalogToggle.setAttribute("aria-expanded", "false");
     catalogPanel.hidden = true;
-
-    if (window.location.hash === "#catalog-panel") {
-      window.history.replaceState(null, "", `${window.location.pathname}${window.location.search}`);
-    }
-
-    // После удаления высокого блока браузер может сохранить прежнюю прокрутку.
-    // Возвращаем страницу в исходное состояние после пересчёта разметки.
-    window.requestAnimationFrame(() => {
-      window.scrollTo({ top: 0, left: 0, behavior: "auto" });
-      document.documentElement.scrollTop = 0;
-      document.body.scrollTop = 0;
-    });
+    window.location.replace("https://mono-print.ru/");
   };
 
   if (window.location.hash === "#catalog-panel") {
