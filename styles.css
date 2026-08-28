@@ -132,10 +132,11 @@ body {
 }
 
 .actions {
+  --actions-gap: clamp(10px, 2.45vw, 17px);
   position: relative;
   z-index: 2;
   display: grid;
-  gap: clamp(10px, 2.45vw, 17px);
+  gap: var(--actions-gap);
   margin-top: 0;
 }
 
@@ -232,11 +233,37 @@ body {
 
 .catalog-panel {
   scroll-margin-top: clamp(190px, 46vw, 230px);
-  padding: clamp(12px, 2.8vw, 19px);
-  border: 1px solid rgba(255,255,255,.8);
+  max-height: 0;
+  margin-bottom: calc(-1 * var(--actions-gap));
+  padding: 0 clamp(12px, 2.8vw, 19px);
+  overflow: hidden;
+  border: 0 solid transparent;
   border-radius: clamp(20px, 3.2vw, 26px);
   background: rgba(255,255,255,.78);
+  box-shadow: 0 0 0 rgba(0,0,0,0);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-12px);
+  transition:
+    max-height .55s cubic-bezier(.22,.61,.36,1),
+    margin-bottom .55s cubic-bezier(.22,.61,.36,1),
+    padding .55s cubic-bezier(.22,.61,.36,1),
+    border-width .55s cubic-bezier(.22,.61,.36,1),
+    opacity .28s ease,
+    transform .55s cubic-bezier(.22,.61,.36,1),
+    box-shadow .35s ease;
+}
+
+.catalog-panel.is-open {
+  max-height: 1100px;
+  margin-bottom: 0;
+  padding: clamp(12px, 2.8vw, 19px);
+  border-width: 1px;
+  border-color: rgba(255,255,255,.8);
   box-shadow: 0 12px 28px rgba(0,0,0,.09);
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
   backdrop-filter: blur(10px);
 }
 

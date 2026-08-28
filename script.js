@@ -26,19 +26,47 @@ const catalogToggle = document.querySelector(".catalog-toggle");
 const catalogPanel = document.querySelector("#catalog-panel");
 
 if (catalogToggle && catalogPanel) {
-  const openCatalog = () => {
+  let catalogCloseTimer;
+
+  const openCatalog = ({ animate = true } = {}) => {
+    window.clearTimeout(catalogCloseTimer);
     catalogToggle.setAttribute("aria-expanded", "true");
     catalogPanel.hidden = false;
+    catalogPanel.removeAttribute("inert");
+    catalogPanel.setAttribute("aria-hidden", "false");
+
+    if (!animate) {
+      catalogPanel.classList.add("is-open");
+      return;
+    }
+
+    window.requestAnimationFrame(() => {
+      window.requestAnimationFrame(() => catalogPanel.classList.add("is-open"));
+    });
   };
 
   const closeCatalog = () => {
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     catalogToggle.setAttribute("aria-expanded", "false");
-    catalogPanel.hidden = true;
-    window.location.replace("https://mono-print.ru/");
+    catalogPanel.classList.remove("is-open");
+    catalogPanel.setAttribute("aria-hidden", "true");
+    catalogPanel.setAttribute("inert", "");
+
+    if (window.location.hash === "#catalog-panel") {
+      window.history.replaceState(null, "", `${window.location.pathname}${window.location.search}`);
+    }
+
+    window.scrollTo({ top: 0, left: 0, behavior: reduceMotion ? "auto" : "smooth" });
+
+    catalogCloseTimer = window.setTimeout(() => {
+      if (catalogToggle.getAttribute("aria-expanded") === "false") {
+        catalogPanel.hidden = true;
+      }
+    }, reduceMotion ? 0 : 570);
   };
 
   if (window.location.hash === "#catalog-panel") {
-    openCatalog();
+    openCatalog({ animate: false });
   }
 
   catalogToggle.addEventListener("click", () => {
