@@ -132,11 +132,10 @@ body {
 }
 
 .actions {
-  --actions-gap: clamp(10px, 2.45vw, 17px);
   position: relative;
   z-index: 2;
   display: grid;
-  gap: var(--actions-gap);
+  gap: clamp(10px, 2.45vw, 17px);
   margin-top: 0;
 }
 
@@ -232,38 +231,13 @@ body {
 }
 
 .catalog-panel {
-  --catalog-panel-padding: clamp(12px, 2.8vw, 19px);
   scroll-margin-top: clamp(190px, 46vw, 230px);
-  max-height: 0;
-  margin-bottom: calc(-1 * var(--actions-gap) - 2px);
-  padding: 0 var(--catalog-panel-padding);
-  overflow: hidden;
-  border: 1px solid transparent;
+  padding: clamp(12px, 2.8vw, 19px);
+  border: 1px solid rgba(255,255,255,.8);
   border-radius: clamp(20px, 3.2vw, 26px);
-  background: rgba(255,255,255,.94);
-  box-shadow: none;
-  opacity: 0;
-  pointer-events: none;
-  transform: translateY(-4px);
-  transition:
-    max-height .26s cubic-bezier(.22,.61,.36,1),
-    margin-bottom .26s cubic-bezier(.22,.61,.36,1),
-    padding-top .26s cubic-bezier(.22,.61,.36,1),
-    padding-bottom .26s cubic-bezier(.22,.61,.36,1),
-    opacity .14s linear,
-    transform .2s ease-out,
-    border-color .14s linear;
-}
-
-.catalog-panel.is-open {
-  max-height: var(--catalog-open-height, 900px);
-  margin-bottom: 0;
-  padding: var(--catalog-panel-padding);
-  border-color: rgba(255,255,255,.8);
+  background: rgba(255,255,255,.78);
   box-shadow: 0 12px 28px rgba(0,0,0,.09);
-  opacity: 1;
-  pointer-events: auto;
-  transform: translateY(0);
+  backdrop-filter: blur(10px);
 }
 
 .catalog-panel[hidden] {
